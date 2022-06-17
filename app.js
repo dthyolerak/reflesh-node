@@ -6,8 +6,15 @@ const app = express();
 const port = 3000;
 //listen to port
 app.listen(port , console.log(`Welcome to task manager on port ${port}`));
+//midware
 
+app.use(express.json())
 //router
 app.get('/task-manager', (req, res) =>{
     res.send("Welcome to task manager app");
 })
+
+//import tesk
+const task = require('./router/tasks');
+//diplaying task api
+app.use("/api/vi/task",task);
